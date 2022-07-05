@@ -55,14 +55,14 @@ const HeadingSecondary = styled(Typography)`
 `;
 
 const CustomButton = styled(Button)`
-  background-color: rgb(250, 250, 250);
-  color: rgb(97, 97, 97);
+  background-color: rgb(250, 250, 250) !important;
+  color: rgb(97, 97, 97) !important;
   line-height: 1.75;
   padding: 7px 21px;
   min-width: 64px;
   margin: 2rem 0 0;
   border-radius: 4px;
-  border-color: rgba(97, 97, 97, 0.1);
+  border-color: rgba(97, 97, 97, 0.1) !important;
 `;
 
 const CustomTextField = styled(TextField)`
@@ -74,7 +74,7 @@ const CustomLink = styled(Link)`
   font-size: 0.875rem;
   text-transform: capitalize;
   padding: 2px 5px;
-  color: ${(props) => props.theme.color};
+  color: ${(props) => props.theme.color || '#000'} !important;
 `;
 
 const color = {
