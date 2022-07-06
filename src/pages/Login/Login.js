@@ -2,11 +2,20 @@ import React from 'react';
 import { Box, Container, Typography, Button, TextField, Link } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 
-
 /* import custom components */
 // import CheckboxLabel from '../../components/CheckboxLabel';
-import {Wrapper, Icon, CustomBox, CustomButton, CustomLink, CustomTextField, styles, color, HeadingMain, HeadingSecondary} from './Login.styles'
-
+import {
+  Wrapper,
+  Icon,
+  CustomBox,
+  CustomButton,
+  CustomLink,
+  CustomTextField,
+  styles,
+  color,
+  HeadingMain,
+  HeadingSecondary,
+} from './Login.styles';
 
 const Login = () => {
   return (
@@ -45,11 +54,26 @@ const Login = () => {
           </CustomBox>
 
           <CustomBox>
-            <Typography varaint='h6' sx={{color: 'rgb(0,0,0)', fontSize: '0.875rem'}}>Sign in with Email address</Typography>
+            <Typography varaint='h6' sx={{ color: 'rgb(0,0,0)', fontSize: '0.875rem' }}>
+              Sign in with Email address
+            </Typography>
           </CustomBox>
 
-          <CustomTextField variant='outlined' required label='Email Address / Username' fullWidth type='text' ></CustomTextField>
-          <CustomTextField variant='outlined' required label='Password' fullWidth type='password' sx={{marginBottom: '1rem'}}></CustomTextField>
+          <CustomTextField
+            variant='outlined'
+            required
+            label='Email Address / Username'
+            fullWidth
+            type='text'
+          ></CustomTextField>
+          <CustomTextField
+            variant='outlined'
+            required
+            label='Password'
+            fullWidth
+            type='password'
+            sx={{ marginBottom: '1rem' }}
+          ></CustomTextField>
 
           <CustomBox>
             {/* <CheckboxLabel label='Remember me' /> */}
@@ -58,23 +82,20 @@ const Login = () => {
             </CustomLink>
           </CustomBox>
 
-          <Button variant='contained' fullWidth={true} sx={styles.SubmitButton} >
+          <Button variant='contained' fullWidth={true} sx={styles.SubmitButton}>
             Sign In
           </Button>
 
           <hr />
-
-          <CustomLink component={RouterLink} to='/register'>
-            Don't have an account?
-          </CustomLink>
+          <CustomBox>
+            <CustomLink component={RouterLink} to='/register'>
+              Don't have an account?
+            </CustomLink>
+          </CustomBox>
         </Wrapper>
       </Container>
     </>
   );
 };
-
-
-
-
 
 export default Login;

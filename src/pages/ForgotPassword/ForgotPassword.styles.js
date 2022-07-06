@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {Typography, Button, TextField, Link } from '@mui/material';
+import {Container,  Typography, Button, TextField, Link } from '@mui/material';
 
 const color = {
   BLACK: '#000',
@@ -43,10 +43,17 @@ const styles = {
   SubmitButton: {
     padding: '8px 24px',
     lineHeight: '1.75em',
-    marginBottom: '1rem', 
+    marginBottom: '1rem',
     textTransform: 'capitalize'
   },
 };
+
+const CustomContainer = styled(Container)`
+position: absolute; 
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%); 
+`;
 
 const Wrapper = styled.div`
   background-color: rgb(255, 255, 255);
@@ -59,9 +66,10 @@ const Wrapper = styled.div`
   border: 1px solid rgba(176, 190, 197, 0.46);
   margin: 5rem auto;
   padding: 25px;
-  min-width: 450px;
+  min-width: 400px;
   width: 26vw;
-  min-height: 75vh;
+  min-height: 500px;
+  height: 45vh;
 `;
 
 const Icon = styled.span`
@@ -78,26 +86,26 @@ const CustomBox = styled.div`
   width: 100%;
   align-items: center;
   justify-content: center;
-  margin: 1.5rem 0; 
+  margin: 1.5rem 0;
 `;
 
 const HeadingMain = styled(Typography)`
-  margin: 0 0 0.35em;
   font-size: 1.25rem;
   font-weight: 500;
   font-family: Roboto, sans-serif;
   line-height: 1.167;
   color: rgb(0, 150, 136);
+  margin-bottom: 1rem !important;
 `;
 
 const HeadingSecondary = styled(Typography)`
-  margin: 0px;
   color: rgb(158, 158, 158);
   font-weight: 400;
   font-family: Roboto, sans-serif;
   line-height: 1.66;
   font-size: 16px;
   text-align: center;
+  margin-bottom: 1rem !important;
 `;
 
 const CustomButton = styled(Button)`
@@ -112,24 +120,31 @@ const CustomButton = styled(Button)`
 `;
 
 const CustomTextField = styled(TextField)`
-  margin: 8px 0 !important;
-`;
-
-const CustomLink = styled(Link)`
+  margin-bottom: 2rem !important;
+  `;
+  
+  const CustomLink = styled(Link)`
   text-decoration: none !important;
   font-size: 0.875rem;
   text-transform: capitalize;
   padding: 2px 5px;
-  font-weight: 500;
+  font-weight: 500; 
   color: ${(props) => props.theme.color || '#000'} !important;
 `;
 
-
-
-
-export {Wrapper, Icon, CustomBox, CustomButton, CustomLink, CustomTextField, styles, color, HeadingMain, HeadingSecondary}
-
-
+export {
+  Wrapper,
+  Icon,
+  CustomBox,
+  CustomButton,
+  CustomLink,
+  CustomTextField,
+  styles,
+  color,
+  HeadingMain,
+  HeadingSecondary,
+  CustomContainer,
+};
 
 // const Wrapper = styled('div')({
 //   backgroundColor: 'rgb(255, 255, 255)',

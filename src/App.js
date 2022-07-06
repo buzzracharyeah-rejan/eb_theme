@@ -1,17 +1,31 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 import HelloWorld from './components/HelloWorld';
 import Login from './pages/Login/Login';
 import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
+import Signup from './pages/Signup/Signup';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: 'rgb(0, 150, 136)',
+    },
+  },
+});
 
 const App = () => {
   return (
-    <Routes>
-      <Route path='/' element={<HelloWorld />} />
-      <Route path='/login' element={<Login />} />
-      <Route path='/forgotPassword' element={<ForgotPassword />} />
-    </Routes>
+    <ThemeProvider theme={theme}>
+      <Routes>
+        <Route path='/' element={<HelloWorld />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/forgotPassword' element={<ForgotPassword />} />
+        <Route path='/register' element={<Signup />} /> 
+      </Routes>
+    </ThemeProvider>
   );
 };
 
