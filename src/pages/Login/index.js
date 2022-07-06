@@ -7,7 +7,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import {
   Wrapper,
   Icon,
-  CustomBox,
+  BoxWrapper,
   CustomButton,
   CustomLink,
   CustomTextField,
@@ -33,10 +33,10 @@ const Login = () => {
             </BrandText>
           </>
 
-          <CustomBox>
+          <BoxWrapper>
             <HeadingMain variant='h6'>Hi, Welcome Back</HeadingMain>
             <HeadingSecondary variant='p'>Enter your credentials to continue</HeadingSecondary>
-          </CustomBox>
+          </BoxWrapper>
 
           <CustomButton variant='outlined' fullWidth>
             <img
@@ -49,15 +49,15 @@ const Login = () => {
             Sign In With Google
           </CustomButton>
 
-          <CustomBox>
+          <BoxWrapper>
             <DisabledBtn variant='outlined' disabled>
               OR
             </DisabledBtn>
-          </CustomBox>
+          </BoxWrapper>
 
-          <CustomBox>
+          <BoxWrapper>
             <HelperText varaint='h6'>Sign in with Email address</HelperText>
-          </CustomBox>
+          </BoxWrapper>
 
           <CustomTextField
             variant='outlined'
@@ -76,23 +76,23 @@ const Login = () => {
             sx={{ marginBottom: '1rem' }}
           />
 
-          <CustomBox>
+          <BoxWrapper>
             {/* <CheckboxLabel label='Remember me' /> */}
             <CustomLink color='rgb(0, 150, 136)' component={RouterLink} to='/forgotPassword'>
               Forgot Password?
             </CustomLink>
-          </CustomBox>
+          </BoxWrapper>
 
           <SubmitBtn variant='contained' fullWidth={true}>
             Sign In
           </SubmitBtn>
 
           <hr />
-          <CustomBox>
+          <BoxWrapper>
             <CustomLink component={RouterLink} to='/register'>
               Don't have an account?
             </CustomLink>
-          </CustomBox>
+          </BoxWrapper>
         </Wrapper>
       </Container>
     </>

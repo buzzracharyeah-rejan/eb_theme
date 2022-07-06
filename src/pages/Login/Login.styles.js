@@ -37,7 +37,7 @@ export const Icon = styled.span`
   font-size: 1.8rem;
 `;
 
-export const CustomBox = styled.div`
+export const BoxWrapper = styled.div`
   display: flex;
   flex-flow: column wrap;
   align-items: center;
@@ -90,7 +90,7 @@ export const CustomLink = styled(Link)`
 
 export const SubmitBtn = styled(Button)`
   padding: 8px 24px !important;
-  margin-bottom: 1rem !important;
+  margin: 1rem 0 !important;
   text-transform: capitalize !important;
 `;
 

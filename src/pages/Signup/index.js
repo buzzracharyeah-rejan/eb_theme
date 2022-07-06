@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Container, Typography, Button, TextField, Link } from '@mui/material';
+import { Container } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 
 /* import custom components */
@@ -7,14 +7,16 @@ import { Link as RouterLink } from 'react-router-dom';
 import {
   Wrapper,
   Icon,
-  CustomBox,
+  BoxWrapper,
   CustomButton,
   CustomLink,
   CustomTextField,
-  styles,
-  color,
   HeadingMain,
   HeadingSecondary,
+  BrandText,
+  DisabledBtn,
+  HelperText,
+  SubmitBtn,
 } from './Signup.styles';
 
 const Signup = () => {
@@ -23,18 +25,18 @@ const Signup = () => {
       <Container maxWidth='sm'>
         <Wrapper>
           <>
-            <Typography variant='h6' gutterBottom={true} align='center' sx={styles.branding}>
+            <BrandText variant='h6' gutterBottom={true} align='center'>
               <Icon>
                 <i className='fa-brands fa-raspberry-pi'></i>
               </Icon>
               EB THEME
-            </Typography>
+            </BrandText>
           </>
 
-          <CustomBox>
+          <BoxWrapper>
             <HeadingMain variant='h6'>Sign up</HeadingMain>
             <HeadingSecondary variant='p'>Enter your credentials to continue</HeadingSecondary>
-          </CustomBox>
+          </BoxWrapper>
 
           <CustomButton variant='outlined' fullWidth>
             <img
@@ -44,40 +46,37 @@ const Signup = () => {
               height='16'
               style={{ marginRight: '8px' }}
             />
-            Sign In With Google
+            Sign Up With Google
           </CustomButton>
 
-          <CustomBox>
-            <Button variant='outlined' disabled sx={styles.ORButton}>
+          <BoxWrapper>
+            <DisabledBtn variant='outlined' disabled>
               OR
-            </Button>
-          </CustomBox>
+            </DisabledBtn>
+          </BoxWrapper>
 
-          <CustomBox>
-            <Typography varaint='h6' sx={{ color: 'rgb(0,0,0)', fontSize: '0.875rem' }}>
-              Sign up with Email address
-            </Typography>
-          </CustomBox>
+          <BoxWrapper>
+            <HelperText varaint='h6'>Sign up with Email address</HelperText>
+          </BoxWrapper>
 
           <CustomTextField
-            variant='outlined'
-            label='First Name'
-            type='text'
-            sx={{
-              width: '150px', 
-              marginRight: '1rem !important'
-            }}
-          ></CustomTextField>
-
-          <CustomTextField
-            variant='outlined'
-            label='Last Name'
-            type='text'
-            sx={{
-              width: '120px', 
-              marginRight: '1rem !important'
-            }}
-          ></CustomTextField>
+              variant='outlined'
+              label='First Name'
+              type='text'
+              sx={{
+                width: 'calc(100% / 2 - 18px)',
+                marginRight: '1rem !important',
+              }}
+            />
+            <CustomTextField
+              variant='outlined'
+              label='Last Name'
+              type='text'
+              sx={{
+                width: 'calc(100% / 2 - 18px)',
+                marginRight: '1rem !important',
+              }}
+            />
 
           <CustomTextField
             variant='outlined'
@@ -85,7 +84,7 @@ const Signup = () => {
             label='Email Address / Username'
             fullWidth
             type='text'
-          ></CustomTextField>
+          />
 
           <CustomTextField
             variant='outlined'
@@ -94,18 +93,18 @@ const Signup = () => {
             fullWidth
             type='password'
             sx={{ marginBottom: '1rem' }}
-          ></CustomTextField>
+          />
 
-          <Button variant='contained' fullWidth={true} sx={styles.SubmitButton}>
+          <SubmitBtn variant='contained' fullWidth={true}>
             Sign Up
-          </Button>
+          </SubmitBtn>
 
           <hr />
-          <CustomBox>
+          <BoxWrapper>
             <CustomLink component={RouterLink} to='/login'>
               Already have an account?
             </CustomLink>
-          </CustomBox>
+          </BoxWrapper>
         </Wrapper>
       </Container>
     </>

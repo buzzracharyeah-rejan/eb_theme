@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import {Container,  Typography, Button, TextField, Link } from '@mui/material';
 
-const color = {
+export const color = {
   BLACK: '#000',
   PRIMARY: 'rgb(0, 150, 136)',
 };
 
-const font = {
+export const font = {
   weight: {
     LIGHT: 300,
     NORMAL: 400,
@@ -18,7 +18,7 @@ const font = {
   },
 };
 
-const styles = {
+export const styles = {
   branding: {
     fontWeight: font.weight.BOLDER,
     color: color.BLACK,
@@ -48,14 +48,14 @@ const styles = {
   },
 };
 
-const CustomContainer = styled(Container)`
+export const CustomContainer = styled(Container)`
 position: absolute; 
 top: 50%;
 left: 50%;
 transform: translate(-50%, -50%); 
 `;
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   background-color: rgb(255, 255, 255);
   color: rgb(97, 97, 97);
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -72,14 +72,14 @@ const Wrapper = styled.div`
   height: 45vh;
 `;
 
-const Icon = styled.span`
+export const Icon = styled.span`
   padding: 4px;
   font-size: 1.2rem;
   color: rgb(0, 150, 136);
   font-size: 1.8rem;
 `;
 
-const CustomBox = styled.div`
+export const BoxWrapper = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-flow: column wrap;
@@ -89,7 +89,7 @@ const CustomBox = styled.div`
   margin: 1.5rem 0;
 `;
 
-const HeadingMain = styled(Typography)`
+export const HeadingMain = styled(Typography)`
   font-size: 1.25rem;
   font-weight: 500;
   font-family: Roboto, sans-serif;
@@ -98,7 +98,7 @@ const HeadingMain = styled(Typography)`
   margin-bottom: 1rem !important;
 `;
 
-const HeadingSecondary = styled(Typography)`
+export const HeadingSecondary = styled(Typography)`
   color: rgb(158, 158, 158);
   font-weight: 400;
   font-family: Roboto, sans-serif;
@@ -119,11 +119,11 @@ const CustomButton = styled(Button)`
   border-color: rgba(97, 97, 97, 0.1) !important;
 `;
 
-const CustomTextField = styled(TextField)`
+export const CustomTextField = styled(TextField)`
   margin-bottom: 2rem !important;
   `;
   
-  const CustomLink = styled(Link)`
+  export const CustomLink = styled(Link)`
   text-decoration: none !important;
   font-size: 0.875rem;
   text-transform: capitalize;
@@ -132,19 +132,22 @@ const CustomTextField = styled(TextField)`
   color: ${(props) => props.theme.color || '#000'} !important;
 `;
 
-export {
-  Wrapper,
-  Icon,
-  CustomBox,
-  CustomButton,
-  CustomLink,
-  CustomTextField,
-  styles,
-  color,
-  HeadingMain,
-  HeadingSecondary,
-  CustomContainer,
-};
+
+export const SubmitBtn = styled(Button)`
+  padding: 8px 24px !important;
+  margin-bottom: 1rem !important;
+  text-transform: capitalize !important;
+`;
+
+export const BrandText = styled(Typography)`
+  fontWeight: 600; 
+  color: #000,
+  padding: 1rem;
+  cursor: pointer;
+  line-height: 1.334em;
+`;
+
+
 
 // const Wrapper = styled('div')({
 //   backgroundColor: 'rgb(255, 255, 255)',

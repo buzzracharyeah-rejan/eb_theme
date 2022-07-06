@@ -1,5 +1,4 @@
 import React from 'react';
-import { Typography, Button } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 
 /* import custom components */
@@ -7,13 +6,14 @@ import { Link as RouterLink } from 'react-router-dom';
 import {
   Wrapper,
   Icon,
-  CustomBox,
+  BoxWrapper,
   CustomLink,
   CustomTextField,
-  styles,
   HeadingMain,
   HeadingSecondary,
   CustomContainer,
+  SubmitBtn,
+  BrandText,
 } from './ForgotPassword.styles';
 
 const ForgotPassword = () => {
@@ -22,20 +22,20 @@ const ForgotPassword = () => {
       <CustomContainer maxWidth='sm'>
         <Wrapper>
           <>
-            <Typography variant='h6' gutterBottom={true} align='center' sx={styles.branding}>
+          <BrandText variant='h6' gutterBottom={true} align='center'>
               <Icon>
                 <i className='fa-brands fa-raspberry-pi'></i>
               </Icon>
               EB THEME
-            </Typography>
+            </BrandText>
           </>
 
-          <CustomBox>
+          <BoxWrapper>
             <HeadingMain variant='h6'>Forgot Password?</HeadingMain>
             <HeadingSecondary variant='p'>
               Enter your email address below and we'll send you password reset OTP.
             </HeadingSecondary>
-          </CustomBox>
+          </BoxWrapper>
 
           <CustomTextField
             variant='outlined'
@@ -43,19 +43,18 @@ const ForgotPassword = () => {
             label='Email Address / Username'
             fullWidth
             type='text'
-          ></CustomTextField>
+            />
 
-          <Button variant='contained' fullWidth={true} sx={styles.SubmitButton}>
-            Send Mail
-          </Button>
-
+          <SubmitBtn variant='contained' fullWidth={true}>
+            Sign In
+          </SubmitBtn>
           <hr />
 
-          <CustomBox>
+          <BoxWrapper>
             <CustomLink component={RouterLink} to='/login'>
               Already have an account?
             </CustomLink>
-          </CustomBox>
+          </BoxWrapper>
         </Wrapper>
       </CustomContainer>
     </>
