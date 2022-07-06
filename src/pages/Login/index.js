@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Container, Typography, Button, TextField, Link } from '@mui/material';
+import { Container } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 
 /* import custom components */
@@ -11,10 +11,12 @@ import {
   CustomButton,
   CustomLink,
   CustomTextField,
-  styles,
-  color,
   HeadingMain,
   HeadingSecondary,
+  DisabledBtn,
+  SubmitBtn,
+  BrandText,
+  HelperText,
 } from './Login.styles';
 
 const Login = () => {
@@ -23,12 +25,12 @@ const Login = () => {
       <Container maxWidth='sm'>
         <Wrapper>
           <>
-            <Typography variant='h6' gutterBottom={true} align='center' sx={styles.branding}>
+            <BrandText variant='h6' gutterBottom={true} align='center'>
               <Icon>
                 <i className='fa-brands fa-raspberry-pi'></i>
               </Icon>
               EB THEME
-            </Typography>
+            </BrandText>
           </>
 
           <CustomBox>
@@ -48,15 +50,13 @@ const Login = () => {
           </CustomButton>
 
           <CustomBox>
-            <Button variant='outlined' disabled sx={styles.ORButton}>
+            <DisabledBtn variant='outlined' disabled>
               OR
-            </Button>
+            </DisabledBtn>
           </CustomBox>
 
           <CustomBox>
-            <Typography varaint='h6' sx={{ color: 'rgb(0,0,0)', fontSize: '0.875rem' }}>
-              Sign in with Email address
-            </Typography>
+            <HelperText varaint='h6'>Sign in with Email address</HelperText>
           </CustomBox>
 
           <CustomTextField
@@ -65,7 +65,8 @@ const Login = () => {
             label='Email Address / Username'
             fullWidth
             type='text'
-          ></CustomTextField>
+          />
+
           <CustomTextField
             variant='outlined'
             required
@@ -73,18 +74,18 @@ const Login = () => {
             fullWidth
             type='password'
             sx={{ marginBottom: '1rem' }}
-          ></CustomTextField>
+          />
 
           <CustomBox>
             {/* <CheckboxLabel label='Remember me' /> */}
-            <CustomLink component={RouterLink} to='/forgotPassword'>
+            <CustomLink color='rgb(0, 150, 136)' component={RouterLink} to='/forgotPassword'>
               Forgot Password?
             </CustomLink>
           </CustomBox>
 
-          <Button variant='contained' fullWidth={true} sx={styles.SubmitButton}>
+          <SubmitBtn variant='contained' fullWidth={true}>
             Sign In
-          </Button>
+          </SubmitBtn>
 
           <hr />
           <CustomBox>

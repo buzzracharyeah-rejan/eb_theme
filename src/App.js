@@ -4,9 +4,9 @@ import { Routes, Route } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import HelloWorld from './components/HelloWorld';
-import Login from './pages/Login/Login';
-import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
-import Signup from './pages/Signup/Signup';
+import Login from './pages/Login';
+import ForgotPassword from './pages/ForgotPassword';
+import Signup from './pages/Signup';
 
 const theme = createTheme({
   palette: {
