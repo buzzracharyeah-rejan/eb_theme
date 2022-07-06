@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 /* import custom components */
 // import CheckboxLabel from '../../components/CheckboxLabel';
@@ -19,7 +20,17 @@ import {
   HelperText,
 } from './Login.styles';
 
-const Login = () => {
+const Login = (event) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
     <>
       <Container maxWidth='sm'>
@@ -59,34 +70,47 @@ const Login = () => {
             <HelperText varaint='h6'>Sign in with Email address</HelperText>
           </BoxWrapper>
 
-          <CustomTextField
-            variant='outlined'
-            required
-            label='Email Address / Username'
-            fullWidth
-            type='text'
-          />
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <CustomTextField
+              variant='outlined'
+              required
+              label='Email Address / Username'
+              fullWidth
+              type='text'
+              {...register('email', {
+                required: true,
+                pattern: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+              })}
+              error={errors.email && true}
+              helperText={errors.email && 'Email required'}
+            />
 
-          <CustomTextField
-            variant='outlined'
-            required
-            label='Password'
-            fullWidth
-            type='password'
-            sx={{ marginBottom: '1rem' }}
-          />
+            <CustomTextField
+              variant='outlined'
+              required
+              label='Password'
+              fullWidth
+              type='password'
+              {...register('password', {
+                required: true,
+                minLength: 8,
+                message: 'password required',
+              })}
+              error={errors.password && true}
+              helperText={errors.password && 'Password required'}
+            />
 
-          <BoxWrapper>
-            {/* <CheckboxLabel label='Remember me' /> */}
-            <CustomLink color='rgb(0, 150, 136)' component={RouterLink} to='/forgotPassword'>
-              Forgot Password?
-            </CustomLink>
-          </BoxWrapper>
+            <BoxWrapper>
+              {/* <CheckboxLabel label='Remember me' /> */}
+              <CustomLink color='rgb(0, 150, 136)' component={RouterLink} to='/forgotPassword'>
+                Forgot Password?
+              </CustomLink>
+            </BoxWrapper>
 
-          <SubmitBtn variant='contained' fullWidth={true}>
-            Sign In
-          </SubmitBtn>
-
+            <SubmitBtn type='submit' variant='contained' fullWidth={true}>
+              Sign In
+            </SubmitBtn>
+          </form>
           <hr />
           <BoxWrapper>
             <CustomLink component={RouterLink} to='/register'>

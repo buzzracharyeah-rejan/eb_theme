@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 /* import custom components */
 // import CheckboxLabel from '../../components/CheckboxLabel';
@@ -20,6 +21,16 @@ import {
 } from './Signup.styles';
 
 const Signup = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = data => {
+    console.log(data)
+  }
+  
   return (
     <>
       <Container maxWidth='sm'>
@@ -59,7 +70,8 @@ const Signup = () => {
             <HelperText varaint='h6'>Sign up with Email address</HelperText>
           </BoxWrapper>
 
-          <CustomTextField
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <CustomTextField
               variant='outlined'
               label='First Name'
               type='text'
@@ -67,6 +79,13 @@ const Signup = () => {
                 width: 'calc(100% / 2 - 18px)',
                 marginRight: '1rem !important',
               }}
+              {...register('firstName', {
+                required: true,
+                minLength: 4,
+                maxLength: 30,
+              })}
+              error={errors.firstName && true}
+              helperText={errors.firstName && 'First name required'}
             />
             <CustomTextField
               variant='outlined'
@@ -76,28 +95,49 @@ const Signup = () => {
                 width: 'calc(100% / 2 - 18px)',
                 marginRight: '1rem !important',
               }}
+              {...register('lastName', {
+                required: true,
+                minLength: 4,
+                maxLength: 30,
+              })}
+              error={errors.lastName && true}
+              helperText={errors.lastName && 'Last name required'}
             />
 
-          <CustomTextField
-            variant='outlined'
-            required
-            label='Email Address / Username'
-            fullWidth
-            type='text'
-          />
+            <CustomTextField
+              variant='outlined'
+              required
+              label='Email Address / Username'
+              fullWidth
+              type='text'
+              {...register('email', {
+                required: true,
+                pattern: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+              })}
+              error={errors.email && true}
+              helperText={errors.email && 'Email required'}
+            />
 
-          <CustomTextField
-            variant='outlined'
-            required
-            label='Password'
-            fullWidth
-            type='password'
-            sx={{ marginBottom: '1rem' }}
-          />
+            <CustomTextField
+              variant='outlined'
+              required
+              label='Password'
+              fullWidth
+              type='password'
+              sx={{ marginBottom: '1rem' }}
+              {...register('password', {
+                required: true,
+                minLength: 8,
+                message: 'password required',
+              })}
+              error={errors.password && true}
+              helperText={errors.password && 'Password required'}
+            />
 
-          <SubmitBtn variant='contained' fullWidth={true}>
-            Sign Up
-          </SubmitBtn>
+            <SubmitBtn variant='contained' type='submit' fullWidth={true}>
+              Sign Up
+            </SubmitBtn>
+          </form>
 
           <hr />
           <BoxWrapper>
