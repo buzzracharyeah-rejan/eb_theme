@@ -1,7 +1,7 @@
 import React, {useState, useContext} from 'react'
 import { Logout, PersonAdd, Settings } from '@mui/icons-material';
 import { Avatar, ListItemIcon, Menu, MenuItem } from '@mui/material';
-import { AppBarContext } from '../../../context/AppContext';
+import { AppBarContext } from '../../../context/AppBarContext';
 
 
 const settings = [

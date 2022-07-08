@@ -1,18 +1,22 @@
 import React from 'react';
-import Sidebar from './SidebarLayout';
-import { styled } from '@mui/system';
+import Sidebar from './Drawer';
 
 import AppBar from './AppBar';
-import AppBarProvider from '../context/AppContext';
+import AppBarProvider from '../context/AppBarContext';
+import { styled } from '@mui/material';
+
+const LayoutWrapper = styled('div')`
+`;
 
 const BaseLayout = ({ children }) => {
   return (
-    <>
-      <AppBarProvider>
+    <AppBarProvider>
+      <LayoutWrapper>
         <AppBar />
-      </AppBarProvider>
-      {children}
-    </>
+        <Sidebar />
+        {children}
+      </LayoutWrapper>
+    </AppBarProvider>
   );
 };
 

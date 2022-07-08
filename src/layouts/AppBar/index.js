@@ -25,7 +25,7 @@ import {
 import { styled } from '@mui/system';
 
 import AppMenu from './Menu';
-import { AppBarContext } from '../../context/AppContext';
+import { AppBarContext } from '../../context/AppBarContext';
 
 const LoginButton = styled(({ ...otherProps }) => <Button {...otherProps} />)`
   background-color: #f3f3f3;

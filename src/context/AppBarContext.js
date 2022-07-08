@@ -23,7 +23,7 @@ const AppBarProvider = ({ children }) => {
   };
 
   return (
-    <AppBarContext.Provider value={{ anchorEl, setAnchorEl, handleClick, handleClose, open, toggleSidebar}}>
+    <AppBarContext.Provider value={{ anchorEl, setAnchorEl, handleClick, handleClose, open, sidebarOpen, toggleSidebar}}>
       {children}
     </AppBarContext.Provider>
   );
