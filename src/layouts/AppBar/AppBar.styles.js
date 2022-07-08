@@ -1,53 +1,27 @@
-import { styled, alpha } from '@mui/system';
-import { Menu, MenuItem, Badge, IconButton, InputBase } from '@mui/material';
-import {
-  SearchIcon,
-  MenuIcon,
-  AccountCircle,
-  MailIcon,
-  NotificationsIcon,
-  MoreIcon,
-} from '@mui/icons-material';
+import { styled, Button, Box, AppBar, Toolbar, IconButton, Typography } from '@mui/material';
 
-export const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(3),
-    width: 'auto',
-  },
-}));
+export const LoginButton = styled(({ ...otherProps }) => <Button {...otherProps} />)`
+  background-color: #f3f3f3;
+  color: #000;
+  padding: 4px 1rem;
 
-export const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
+  :hover {
+    color: #f3f4f5;
+  }
+`;
 
-export const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
-    },
-  },
-}));
+export const MenuWrapper = styled(({ ...otherProps }) => <Box {...otherProps} />)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
-export const MainMenu = styled(({...otherProps}) => <Menu {...otherProps}/>)`
-`
+export const NavWrapper = styled(({ ...otherProps }) => <AppBar {...otherProps} />)``;
+
+export const AppToolbar = styled(({ ...otherProps }) => <Toolbar {...otherProps} />)``;
+
+export const SideMenuToggleButton = styled(({ ...otherProps }) => <IconButton {...otherProps} />)``;
+
+export const BrandText = styled(({ ...otherProps }) => <Typography {...otherProps} />)``;
+
+export const ProfileButton = styled(({ ...otherProps }) => <IconButton {...otherProps} />)``;

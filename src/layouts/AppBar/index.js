@@ -1,56 +1,28 @@
 import React, { useContext } from 'react';
-import {
-  AppBar,
-  Button,
-  IconButton,
-  Toolbar,
-  Typography,
-  Box,
-  Tooltip,
-  Avatar,
-  Menu,
-  ListItemIcon,
-  MenuItem,
-  Divider,
-} from '@mui/material';
+import { Tooltip, Avatar } from '@mui/material';
 
 import {
-  ShoppingCartCheckout,
-  Menu as MenuIcon,
-  PersonAdd,
-  Settings,
-  Logout,
-} from '@mui/icons-material';
+  AppToolbar,
+  BrandText,
+  MenuWrapper,
+  NavWrapper,
+  ProfileButton,
+  SideMenuToggleButton,
+} from './AppBar.styles';
+import ProfileMenu from './ProfileMenu';
 
-import { styled } from '@mui/system';
+import { Menu as MenuIcon } from '@mui/icons-material';
 
-import AppMenu from './Menu';
 import { AppBarContext } from '../../context/AppBarContext';
-
-const LoginButton = styled(({ ...otherProps }) => <Button {...otherProps} />)`
-  background-color: #f3f3f3;
-  color: #000;
-  padding: 4px 1rem;
-
-  :hover {
-    color: #f3f4f5;
-  }
-`;
-
-const WrapMenu = styled(({ ...otherProps }) => <Box {...otherProps} />)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
 
 const MuiAppBar = () => {
   const { anchorEl, handleClick, open, toggleSidebar } = useContext(AppBarContext);
 
   return (
     <>
-      <AppBar elevation={4} position='static'>
-        <Toolbar>
-          <IconButton
+      <NavWrapper elevation={4} position='static'>
+        <AppToolbar>
+          <SideMenuToggleButton
             size='large'
             edge='start'
             color='inherit'
@@ -59,15 +31,15 @@ const MuiAppBar = () => {
             onClick={toggleSidebar}
           >
             <MenuIcon />
-          </IconButton>
+          </SideMenuToggleButton>
 
-          <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
+          <BrandText variant='h6' component='div' sx={{ flexGrow: 1 }}>
             EB Theme
-          </Typography>
+          </BrandText>
 
-          <WrapMenu>
+          <MenuWrapper>
             <Tooltip title='Account Settings'>
-              <IconButton
+              <ProfileButton
                 onClick={handleClick}
                 size='small'
                 sx={{ ml: 2 }}
@@ -76,12 +48,12 @@ const MuiAppBar = () => {
                 aria-expanded={open ? 'true' : undefined}
               >
                 <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
-              </IconButton>
+              </ProfileButton>
             </Tooltip>
-          </WrapMenu>
-          <AppMenu />
-        </Toolbar>
-      </AppBar>
+          </MenuWrapper>
+          <ProfileMenu />
+        </AppToolbar>
+      </NavWrapper>
     </>
   );
 };
