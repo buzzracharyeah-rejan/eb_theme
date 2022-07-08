@@ -8,10 +8,11 @@ import {
   NavWrapper,
   ProfileButton,
   SideMenuToggleButton,
+  UserAvatar,
 } from './AppBar.styles';
 import ProfileMenu from './ProfileMenu';
 
-import { Menu as MenuIcon } from '@mui/icons-material';
+import { Menu as MenuIcon, Settings } from '@mui/icons-material';
 
 import { AppBarContext } from '../../context/AppBarContext';
 
@@ -20,7 +21,7 @@ const MuiAppBar = () => {
 
   return (
     <>
-      <NavWrapper elevation={4} position='static'>
+      <NavWrapper elevation={2} position='static'>
         <AppToolbar>
           <SideMenuToggleButton
             size='large'
@@ -47,7 +48,8 @@ const MuiAppBar = () => {
                 aria-haspopup='true'
                 aria-expanded={open ? 'true' : undefined}
               >
-                <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+                <UserAvatar src='https://berrydashboard.io/static/media/user-round.13b5a31b.svg' />
+                <Settings />
               </ProfileButton>
             </Tooltip>
           </MenuWrapper>
