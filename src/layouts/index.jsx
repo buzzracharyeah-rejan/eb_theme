@@ -1,13 +1,19 @@
-import React from 'react'
-import Sidebar from './SidebarLayout'
-import { styled } from '@mui/system'
+import React from 'react';
+import Sidebar from './SidebarLayout';
+import { styled } from '@mui/system';
 
-const BaseLayout = ({children}) => {
-    return (
-        <>
-            {children}
-        </>
-    )
-}
+import AppBar from './AppBar';
+import AppBarProvider from '../context/AppContext';
 
-export default BaseLayout; 
+const BaseLayout = ({ children }) => {
+  return (
+    <>
+      <AppBarProvider>
+        <AppBar />
+      </AppBarProvider>
+      {children}
+    </>
+  );
+};
+
+export default BaseLayout;
