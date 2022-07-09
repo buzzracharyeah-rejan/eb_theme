@@ -12,7 +12,7 @@ import {
   AppListText,
   BrandText,
   SideMenu,
-  BrandIcon
+  BrandIcon,
 } from './Drawer.styles';
 import { Icon } from '@mui/material';
 
@@ -23,28 +23,34 @@ const ItemsList = [
 
 const AppDrawer = () => {
   const { sidebarOpen } = useContext(AppBarContext);
+  const drawerWidth = 300; 
   const navigate = useNavigate();
   return (
-    <div sx={{ position: 'relative' }}>
-      <SideMenu variant='persistent' anchor='right' open={sidebarOpen}>
-        <BrandText variant='body1' component='p' gutterBottom={true} align='center'>
-          <BrandIcon >
-            <i className='fa-brands fa-raspberry-pi'></i>
-          </BrandIcon>
-          EB THEME
-        </BrandText>
-        <AppList>
-          {ItemsList.map(({ icon, text, path }) => (
-            <AppListItem key={text}>
-              <AppListButton onClick={() => navigate(path)}>
-                <AppListIcon>{icon}</AppListIcon>
-                <AppListText primary={text} />
-              </AppListButton>
-            </AppListItem>
-          ))}
-        </AppList>
-      </SideMenu>
-    </div>
+    <SideMenu
+      variant='persistent'
+      anchor='left'
+      open={sidebarOpen}
+      sx={{
+        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth}, 
+      }}
+    >
+      {/* <BrandText variant='body1' component='p' gutterBottom={true} align='center'>
+        <BrandIcon>
+          <i className='fa-brands fa-raspberry-pi'></i>
+        </BrandIcon>
+        EB THEME
+      </BrandText> */}
+      <AppList>
+        {ItemsList.map(({ icon, text, path }) => (
+          <AppListItem key={text}>
+            <AppListButton onClick={() => navigate(path)}>
+              <AppListIcon>{icon}</AppListIcon>
+              <AppListText primary={text} />
+            </AppListButton>
+          </AppListItem>
+        ))}
+      </AppList>
+    </SideMenu>
   );
 };
 

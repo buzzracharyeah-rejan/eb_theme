@@ -11,16 +11,14 @@ import {
 } from '@mui/material';
 
 export const SideMenu = styled(({ ...otherProps }) => <Drawer {...otherProps} />)`
-  position: relative;
-  top: 20;
+z-index: 1;
+position: relative; 
 `;
 
 export const AppList = styled(({ ...otherProps }) => <List {...otherProps} />)`
-  // background-color: #f3f3f3;
 `;
 
 export const AppListItem = styled(({ ...otherProps }) => <ListItem {...otherProps} />)`
-  // background-color: #f3f3f3;
 `;
 
 export const AppListButton = styled(({ ...otherProps }) => <ListItemButton {...otherProps} />)`
@@ -34,7 +32,9 @@ export const AppListButton = styled(({ ...otherProps }) => <ListItemButton {...o
   }
 `;
 
-export const AppListIcon = styled(({ ...otherProps }) => <ListItemIcon {...otherProps} />)``;
+export const AppListIcon = styled(({ ...otherProps }) => <ListItemIcon {...otherProps} />)`
+padding: 0 0.8rem;
+`;
 
 export const AppListText = styled(({ ...otherProps }) => <ListItemText {...otherProps} />)`
    ;
