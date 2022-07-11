@@ -1,34 +1,31 @@
 import React, { useState, useContext } from 'react';
 import { Badge, IconButton, AppBar as MuiAppBar, Typography, Toolbar } from '@mui/material';
 
-import { AppBar, BrandText } from './Header.styles';
-
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 
+import {AppBar, Drawer} from './Header.styles'; 
 import { SidebarContext } from '../../../context/SidebarContext';
+
+const drawerWidth = 240;
+
 
 const Header = () => {
   const { open, toggleSidebar } = useContext(SidebarContext);
 
   return (
-    <AppBar>
+    <AppBar open={open} position='absolute'>
       <Toolbar>
-        <IconButton onClick={toggleSidebar} sx={{ mr: '24px', ...(open && { display: 'none' }) }}>
+        <IconButton onClick={toggleSidebar}>
           <MenuIcon />
         </IconButton>
-        <Typography variant='h6' component='h1' align='center'>
-          EB Theme
-        </Typography>
+        <Typography variant='h6' component='h1'>EBTHEME</Typography>
         <IconButton>
-          <Badge badgeContent={4} color='secondary'>
-            <NotificationsIcon />
-          </Badge>
+          <NotificationsIcon /> 
         </IconButton>
       </Toolbar>
     </AppBar>
-    //   <h1>appbar component</h1>
   );
 };
 
