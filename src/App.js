@@ -8,6 +8,9 @@ import Login from './pages/Login';
 import ForgotPassword from './pages/ForgotPassword';
 import Signup from './pages/Signup';
 
+/* Import Base Layout */
+import Layout from './layouts/SidebarLayout'; 
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -21,6 +24,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Routes>
         <Route path='/' element={<HelloWorld />} />
+        <Route path='/dashboard' element={<Layout />} />
         <Route path='/login' element={<Login />} />
         <Route path='/forgotPassword' element={<ForgotPassword />} />
         <Route path='/register' element={<Signup />} /> 
