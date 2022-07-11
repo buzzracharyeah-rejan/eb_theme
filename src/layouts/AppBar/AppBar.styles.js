@@ -1,5 +1,4 @@
 import {
-  styled,
   Button,
   Box,
   AppBar,
@@ -8,6 +7,7 @@ import {
   Typography,
   Avatar,
 } from '@mui/material';
+import styled from 'styled-components'; 
 
 export const LoginButton = styled(({ ...otherProps }) => <Button {...otherProps} />)`
   background-color: #f3f3f3;

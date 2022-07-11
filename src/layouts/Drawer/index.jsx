@@ -23,23 +23,21 @@ const ItemsList = [
 
 const AppDrawer = () => {
   const { sidebarOpen } = useContext(AppBarContext);
-  const drawerWidth = 300; 
+  const drawerWidth = 300;
   const navigate = useNavigate();
   return (
     <SideMenu
-      variant='persistent'
+      variant='permanent'
       anchor='left'
-      open={sidebarOpen}
+      open={true}
       sx={{
-        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth}, 
+        '& .MuiDrawer-paper': {
+          boxSizing: 'border-box',
+          width: drawerWidth,
+          marginTop: '4.5rem',
+        },
       }}
     >
-      {/* <BrandText variant='body1' component='p' gutterBottom={true} align='center'>
-        <BrandIcon>
-          <i className='fa-brands fa-raspberry-pi'></i>
-        </BrandIcon>
-        EB THEME
-      </BrandText> */}
       <AppList>
         {ItemsList.map(({ icon, text, path }) => (
           <AppListItem key={text}>

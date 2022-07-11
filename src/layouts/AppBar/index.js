@@ -10,6 +10,7 @@ import {
   SideMenuToggleButton,
   UserAvatar,
 } from './AppBar.styles';
+
 import ProfileMenu from './ProfileMenu';
 
 import { Menu as MenuIcon, Settings } from '@mui/icons-material';

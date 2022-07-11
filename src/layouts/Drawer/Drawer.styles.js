@@ -5,14 +5,13 @@ import {
   ListItemIcon,
   ListItemText,
   ListItemButton,
-  styled,
   Typography,
   Icon,
 } from '@mui/material';
+import styled from 'styled-components'; 
 
 export const SideMenu = styled(({ ...otherProps }) => <Drawer {...otherProps} />)`
 z-index: 1;
-position: relative; 
 `;
 
 export const AppList = styled(({ ...otherProps }) => <List {...otherProps} />)`
