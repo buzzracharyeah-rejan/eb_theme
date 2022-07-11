@@ -1,15 +1,7 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import AppRoutes from './routes';
 
-import HelloWorld from './components/HelloWorld';
-import Login from './pages/Login';
-import ForgotPassword from './pages/ForgotPassword';
-import Signup from './pages/Signup';
-
-/* Import Base Layout */
-import Layout from './layouts/SidebarLayout'; 
 
 const theme = createTheme({
   palette: {
@@ -22,13 +14,7 @@ const theme = createTheme({
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
-      <Routes>
-        <Route path='/' element={<HelloWorld />} />
-        <Route path='/dashboard' element={<Layout />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/forgotPassword' element={<ForgotPassword />} />
-        <Route path='/register' element={<Signup />} /> 
-      </Routes>
+      <AppRoutes />
     </ThemeProvider>
   );
 };

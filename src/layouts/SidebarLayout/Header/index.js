@@ -15,7 +15,7 @@ const Header = () => {
   const { open, toggleSidebar } = useContext(SidebarContext);
 
   return (
-    <AppBar open={open} position='absolute'>
+    <AppBar open={open} position='absolute' elevation={0}>
       <Toolbar>
         <IconButton onClick={toggleSidebar}>
           <MenuIcon />

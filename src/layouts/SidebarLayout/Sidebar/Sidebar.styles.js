@@ -46,7 +46,7 @@ export const Drawer = styled(MuiDrawer)(({ theme, open }) => ({
         duration: theme.transitions.duration.leavingScreen,
       }),
       width: theme.spacing(9), 
-      overflowX: 'hidden'
+      overflowX: 'hidden',
     },
   }),
 }));

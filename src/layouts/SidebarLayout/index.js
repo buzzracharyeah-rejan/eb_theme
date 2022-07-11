@@ -1,17 +1,19 @@
 import React from 'react';
 import SidebarContextProvider from '../../context/SidebarContext';
+import { Box } from '@mui/material';
 
 import Sidebar from './Sidebar';
 import Header from './Header';
+import Main from './Main';
 
 const SidebarLayout = () => {
-  console.log('sidebar layout')
-
   return (
     <SidebarContextProvider>
+      <Box sx={{ display: 'flex' }}>
         <Header />
         <Sidebar />
-        {/* <h1>sidebar layout</h1> */}
+        <Main />
+      </Box>
     </SidebarContextProvider>
   );
 };

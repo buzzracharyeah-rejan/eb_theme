@@ -11,7 +11,6 @@ import MailIcon from '@mui/icons-material/Mail';
 
 
 const ListItemCol = ({open}) => {
-  console.log(open)
   return (
     <List>
       {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
