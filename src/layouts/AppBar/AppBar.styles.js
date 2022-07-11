@@ -6,11 +6,12 @@ import {
   IconButton,
   Typography,
   Avatar,
+  styled 
 } from '@mui/material';
-import styled from 'styled-components'; 
+// import styled from 'styled-components'; 
 
 export const LoginButton = styled(({ ...otherProps }) => <Button {...otherProps} />)`
-  background-color: #f3f3f3;
+  background-color: #f3f3f3 ;
   color: #000;
   padding: 4px 1rem;
 

@@ -19,19 +19,19 @@ const AppRoutes = () => {
     <>
       <Routes>
         <Route
-          path='/dashboard'
+          path='dashboard'
           element={
             <BaseLayout>
               <Dashboard />
             </BaseLayout>
           }
         >
-          <Route path='/dashboard/pageManagement' element={<PageManagement />} />
-          <Route path='/dashboard/adminManagement' element={<AdminManagement />} />
+          <Route path='adminManagement' element={<AdminManagement />} />
         </Route>
-        <Route path='/login' element={<Login />} />
-        <Route path='/forgotPassword' element={<ForgotPassword />} />
-        <Route path='/register' element={<Signup />} />
+          <Route path='pageManagement' element={<PageManagement />} />
+        <Route path='login' element={<Login />} />
+        <Route path='forgotPassword' element={<ForgotPassword />} />
+        <Route path='register' element={<Signup />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
     </>

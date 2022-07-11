@@ -21,15 +21,16 @@ const ItemsList = [
   { icon: <MailIcon />, text: 'Admin Management', path: '/dashboard/adminManagement' },
 ];
 
+const drawerWidth = 300; 
+
 const AppDrawer = () => {
   const { sidebarOpen } = useContext(AppBarContext);
-  const drawerWidth = 300;
   const navigate = useNavigate();
   return (
     <SideMenu
-      variant='permanent'
+      variant='persistent'
       anchor='left'
-      open={true}
+      open={sidebarOpen}
       sx={{
         '& .MuiDrawer-paper': {
           boxSizing: 'border-box',
