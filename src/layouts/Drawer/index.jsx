@@ -17,19 +17,27 @@ import {
 import { Icon } from '@mui/material';
 
 const ItemsList = [
-  { icon: <InboxIcon />, text: 'Page Management', path: '/dashboard/pageManagement' },
-  { icon: <MailIcon />, text: 'Admin Management', path: '/dashboard/adminManagement' },
+  {
+    icon: <InboxIcon />,
+    text: 'Page Management',
+    path: '/dashboard/pageManagement',
+  },
+  {
+    icon: <MailIcon />,
+    text: 'Admin Management',
+    path: '/dashboard/adminManagement',
+  },
 ];
 
-const drawerWidth = 300; 
+const drawerWidth = 300;
 
-const AppDrawer = () => {
-  const { sidebarOpen } = useContext(AppBarContext);
+const AppDrawer = (props) => {
+  const { sidebarOpen } = props;
   const navigate = useNavigate();
   return (
     <SideMenu
-      variant='persistent'
-      anchor='left'
+      variant="persistent"
+      anchor="left"
       open={sidebarOpen}
       sx={{
         '& .MuiDrawer-paper': {
