@@ -10,7 +10,7 @@ const Main = () => {
   useEffect(() => {}, [open]);
   return (
     <MainWrapper open={open}>
-      <Container maxWidth='xl' sx={{ background: '#fff', width: '100vw' }}>
+      <Container maxWidth='xl' sx={{ background: '#fff', ...(!open && {mx: '5em'})}}>
         <Outlet />
       </Container>
     </MainWrapper>

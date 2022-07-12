@@ -1,9 +1,9 @@
 import React from 'react'
+import Table from '../../components/Table'
 
 const AdminManagement = () => {
-    console.log('Admin management')
   return (
-    <div>AdminManagement</div>
+    <Table />
   )
 }
 
