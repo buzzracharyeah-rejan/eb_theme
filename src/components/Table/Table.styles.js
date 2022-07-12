@@ -12,6 +12,12 @@ import {
 
 import styled from 'styled-components';
 
+export const TableWrapper = styled(({ themes, ...otherProps }) => (
+  <Container {...otherProps} />
+))`
+padding: 2.5rem 0;
+`;
+
 export const TableContainer = styled(({ themes, ...otherProps }) => (
   <MuiTableContainer {...otherProps} />
 ))``;
@@ -23,13 +29,16 @@ export const TableBody = styled(({ themes, ...otherProps }) => <MuiTableBody {..
 export const TableCell = styled(({ themes, ...otherProps }) => <MuiTableCell {...otherProps} />)`
   text-transform: capitalize;
   .MuiTableCell-root {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
   }
 
   img {
     height: 100px; 
     width: 100px;
+  }
+
+  div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
   }
 `;

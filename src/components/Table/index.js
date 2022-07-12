@@ -1,9 +1,17 @@
 import React from 'react';
-import { Container, Paper, IconButton } from '@mui/material';
+import { Paper, IconButton } from '@mui/material';
 
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from './Table.styles';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  TableWrapper,
+} from './Table.styles';
 
 const rows = [
   {
@@ -59,7 +67,7 @@ const TableComponent = () => {
   };
 
   return (
-    <Container sx={{ background: '#eee', minWidth: '650px', height: '80vh', padding: '2rem' }}>
+    <TableWrapper>
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
@@ -83,19 +91,21 @@ const TableComponent = () => {
                 </TableCell>
                 <TableCell>{row.rating.rate}</TableCell>
                 <TableCell>
-                  <IconButton onClick={() => handleEdit(row)}>
-                    <EditIcon />
-                  </IconButton>
-                  <IconButton onClick={() => handleDelete(row)}>
-                    <DeleteIcon />
-                  </IconButton>
+                  <div>
+                    <IconButton onClick={() => handleEdit(row)} color='success'>
+                      <EditIcon />
+                    </IconButton>
+                    <IconButton onClick={() => handleDelete(row)} color='error'>
+                      <DeleteIcon />
+                    </IconButton>
+                  </div>
                 </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
-    </Container>
+    </TableWrapper>
   );
 };
 
