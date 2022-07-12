@@ -5,6 +5,7 @@ import { Box } from '@mui/material';
 import Sidebar from './Sidebar';
 import Header from './Header';
 import Main from './Main';
+import ModalContextProvider from '../../context/ModalContext';
 
 const SidebarLayout = () => {
   return (
@@ -12,7 +13,9 @@ const SidebarLayout = () => {
       <Box sx={{ display: 'flex' }}>
         <Header />
         <Sidebar />
-        <Main />
+        <ModalContextProvider>
+          <Main />
+        </ModalContextProvider>
       </Box>
     </SidebarContextProvider>
   );

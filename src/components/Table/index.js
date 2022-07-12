@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Paper, IconButton } from '@mui/material';
 
 import EditIcon from '@mui/icons-material/Edit';
@@ -12,6 +12,8 @@ import {
   TableRow,
   TableWrapper,
 } from './Table.styles';
+import { ModalContext } from '../../context/ModalContext';
+import EditModal from '../Modal/EditModal';
 
 const rows = [
   {
@@ -58,8 +60,16 @@ const rows = [
 const cols = Object.keys(rows[0]).concat(['actions']);
 
 const TableComponent = () => {
-  const handleEdit = (product) => {
-    console.log(`handle edit \n ${product.id + product.title}`);
+  const { modalOpen, handleModalOpen } = useContext(ModalContext);
+  const [payload, setPayload] = useState(null)
+
+  const handleEdit = (data) => {
+
+    if (data) {
+      setPayload(data); 
+      handleModalOpen();
+    }
+    console.log(`handle edit \n ${data.id + data.title}`);
   };
 
   const handleDelete = (product) => {
@@ -67,45 +77,48 @@ const TableComponent = () => {
   };
 
   return (
-    <TableWrapper>
-      <TableContainer component={Paper}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              {cols.map((col, index) => (
-                <TableCell key={index}>{col}</TableCell>
-              ))}
-            </TableRow>
-          </TableHead>
-
-          <TableBody>
-            {rows.map((row) => (
-              <TableRow key={row.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                <TableCell>{row.id}</TableCell>
-                <TableCell>{row.title}</TableCell>
-                <TableCell>{row.price}</TableCell>
-                <TableCell>{row.description}</TableCell>
-                <TableCell>{row.category}</TableCell>
-                <TableCell>
-                  <img src={row.image} />
-                </TableCell>
-                <TableCell>{row.rating.rate}</TableCell>
-                <TableCell>
-                  <div>
-                    <IconButton onClick={() => handleEdit(row)} color='success'>
-                      <EditIcon />
-                    </IconButton>
-                    <IconButton onClick={() => handleDelete(row)} color='error'>
-                      <DeleteIcon />
-                    </IconButton>
-                  </div>
-                </TableCell>
+    <>
+    {modalOpen && <EditModal payload={payload}/>}
+      <TableWrapper>
+        <TableContainer component={Paper}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                {cols.map((col, index) => (
+                  <TableCell key={index}>{col}</TableCell>
+                ))}
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </TableWrapper>
+            </TableHead>
+
+            <TableBody>
+              {rows.map((row) => (
+                <TableRow key={row.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                  <TableCell>{row.id}</TableCell>
+                  <TableCell>{row.title}</TableCell>
+                  <TableCell>{row.price}</TableCell>
+                  <TableCell>{row.description}</TableCell>
+                  <TableCell>{row.category}</TableCell>
+                  <TableCell>
+                    <img src={row.image} />
+                  </TableCell>
+                  <TableCell>{row.rating.rate}</TableCell>
+                  <TableCell>
+                    <div>
+                      <IconButton onClick={() => handleEdit(row)} color='success'>
+                        <EditIcon />
+                      </IconButton>
+                      <IconButton onClick={() => handleDelete(row)} color='error'>
+                        <DeleteIcon />
+                      </IconButton>
+                    </div>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </TableWrapper>
+    </>
   );
 };
 
