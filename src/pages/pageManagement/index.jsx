@@ -1,9 +1,47 @@
-import React from 'react'
+import React from 'react';
+import { Box, FormControlLabel, Paper, Switch, Typography } from '@mui/material';
+import Editor from '../../components/Editor';
+import { EditorWrap, MetaText, TextArea } from './pageManagement.styles';
+import { useEditorContext } from '../../context/EditorContext';
+import { useEffect } from 'react';
 
 const PageManagement = () => {
-  return (
-    <div>PageManagement</div>
-  )
-}
+  const { HTMLButton, toggleHTMLButton, rawHTML, setRawHTML, convertToEditorState } =
+    useEditorContext();
+  const handleChange = (event) => {
+    setRawHTML(event.target.value);
+  };
 
-export default PageManagement
+  useEffect(() => {
+    if (!HTMLButton) {
+      convertToEditorState(rawHTML);
+    }
+  }, [HTMLButton]);
+
+  return (
+    <Box sx={{ marginTop: '2em' }}>
+      <MetaText>title</MetaText>
+      <Paper elevation={1}>
+        <Typography
+          sx={{ padding: '4px', mx: '1rem', textTransform: 'capitalize' }}
+          component='h1'
+          variant='h6'
+        >
+          Terms and conditions
+        </Typography>
+      </Paper>
+      <MetaText>convert</MetaText>
+      <FormControlLabel
+        sx={{ px: '4px' }}
+        control={<Switch onClick={toggleHTMLButton} />}
+        label='Show HTML'
+      />
+      <EditorWrap>
+        <Editor />
+        <TextArea show={HTMLButton} value={rawHTML} onChange={handleChange} />
+      </EditorWrap>
+    </Box>
+  );
+};
+
+export default PageManagement;

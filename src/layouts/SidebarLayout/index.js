@@ -13,9 +13,8 @@ const SidebarLayout = () => {
       <Box sx={{ display: 'flex' }}>
         <Header />
         <Sidebar />
-        <ModalContextProvider>
           <Main />
-        </ModalContextProvider>
+     
       </Box>
     </SidebarContextProvider>
   );

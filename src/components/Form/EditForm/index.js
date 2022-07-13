@@ -39,7 +39,7 @@ const defaultData = {
   price: '',
   category: '',
   avatar: '',
-  rating: ''
+  rating: '',
 };
 
 const EditForm = (props) => {
@@ -135,9 +135,9 @@ const EditForm = (props) => {
             aria-label='empty textarea'
             placeholder='Product Description'
             name='description'
-            minRows={7}
+            minRows={8}
             style={{
-              width: 300,
+              width: 388,
               marginTop: '1rem',
               borderColor: '#eee',
               '& :hover': { borderColor: '#eee' },
