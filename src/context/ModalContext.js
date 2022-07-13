@@ -11,12 +11,12 @@ const ModalContextProvider = ({ children }) => {
   };
 
   const handleModalOpen = () => {
-    console.log('modal open', modalOpen)
+    // console.log('modal open', modalOpen)
     setModalOpen(true)
   }
 
   const handleModalClose = () => {
-    console.log('modal close', modalOpen)
+    // console.log('modal close', modalOpen)
     setModalOpen(false)
   }
 

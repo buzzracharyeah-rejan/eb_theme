@@ -8,12 +8,13 @@ import {
   TableBody as MuiTableBody,
   TableCell as MuiTableCell,
   IconButton,
+  Box,
 } from '@mui/material';
 
 import styled from 'styled-components';
 
 export const TableWrapper = styled(({ themes, ...otherProps }) => (
-  <Container {...otherProps} />
+  <Box {...otherProps} />
 ))`
 padding: 2.5rem 0;
 `;

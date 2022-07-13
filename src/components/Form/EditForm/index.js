@@ -29,7 +29,6 @@ const mapCategoryValues = (category) => {
   const ref = productCategory.map(({ label, value }) => ({ [label]: value }));
   const actualObj = ref.reduce((acc, curr) => ({ ...acc, ...curr }), {});
 
-  console.log(actualObj);
   return actualObj[category];
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, FormControlLabel, Paper, Switch, Typography } from '@mui/material';
+import { Box, Button, FormControlLabel, Paper, Switch, Typography } from '@mui/material';
 import Editor from '../../components/Editor';
-import { EditorWrap, MetaText, TextArea } from './pageManagement.styles';
+import { EditorWrap, MetaText, SubmitButton, TextArea } from './pageManagement.styles';
 import { useEditorContext } from '../../context/EditorContext';
 import { useEffect } from 'react';
 
@@ -40,6 +40,7 @@ const PageManagement = () => {
         <Editor />
         <TextArea show={HTMLButton} value={rawHTML} onChange={handleChange} />
       </EditorWrap>
+      <SubmitButton fullWidth variant='contained'>Submit</SubmitButton>
     </Box>
   );
 };

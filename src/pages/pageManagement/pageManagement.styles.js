@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import styled from 'styled-components';
 
 export const EditorWrap = styled(({ theme, ...otherProps }) => <div {...otherProps} />)`
@@ -25,8 +25,14 @@ export const TextArea = styled('textarea').withConfig({
   width: inherit; 
   height: 500px;
   border: none; 
+  flex-grow: 1; 
 
   textarea:focus{
     border: none; 
   }
 `;
+
+
+export const SubmitButton = styled(Button)`
+margin-top: 2rem !important; 
+`

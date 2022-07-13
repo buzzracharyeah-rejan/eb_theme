@@ -25,7 +25,7 @@ const EditorContextProvider = ({ children }) => {
 
   const convertToHTML = (editorState) => {
     const rawHTML = draftToHTML(convertToRaw(editorState.getCurrentContent()));
-    console.log(rawHTML);
+    // console.log(rawHTML);
     setRawHTML(rawHTML);
   };
 
@@ -34,7 +34,7 @@ const EditorContextProvider = ({ children }) => {
     const { contentBlocks, entityMap } = blocksFromHtml;
     const contentState = ContentState.createFromBlockArray(contentBlocks, entityMap);
     const editorState = EditorState.createWithContent(contentState);
-    console.log(editorState);
+    // console.log(editorState);
     setEditorState(editorState);
   };
 
