@@ -5,6 +5,7 @@ export const EditorWrap = styled(({ theme, ...otherProps }) => <div {...otherPro
   height: 500px;
   margin-top: 1rem;
   border: 1px solid #eee;
+  display: grid; 
 `;
 export const MetaText = styled(({ theme, ...otherProps }) => <p {...otherProps} />)`
   color: rgba(0, 0, 0, 0.4);
@@ -21,14 +22,15 @@ export const TextArea = styled('textarea').withConfig({
   shouldForwardProp: (prop) => prop !== 'show',
 })`
   display: ${(prop) => (prop.show ? '' : 'none')};
-  background: #eee; 
+  // background: #eee; 
   width: inherit; 
   height: 500px;
   border: none; 
   flex-grow: 1; 
 
-  textarea:focus{
-    border: none; 
+  &:focus{
+    outline: 0;  
+    border: 1px solid rgba(0,0,0,0.1);
   }
 `;
 

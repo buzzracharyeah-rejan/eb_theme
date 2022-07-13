@@ -18,7 +18,7 @@ const TextEditor = () => {
   }, [HTMLButton]);
 
   return (
-    <div style={{background: '#eee', display: !HTMLButton ? '': 'none' }}>
+    <div style={{ display: !HTMLButton ? '': 'none' }}>
       <Editor
         editorState={editorState}
         onEditorStateChange={onEditorStateChange}

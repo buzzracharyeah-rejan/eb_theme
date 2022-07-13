@@ -19,7 +19,7 @@ const PageManagement = () => {
   }, [HTMLButton]);
 
   return (
-    <Box sx={{ marginTop: '2em' }}>
+    <Box sx={{ marginTop: '2em', }}>
       <MetaText>title</MetaText>
       <Paper elevation={1}>
         <Typography

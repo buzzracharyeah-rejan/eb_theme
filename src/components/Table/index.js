@@ -69,11 +69,11 @@ const TableComponent = () => {
       setPayload(data); 
       handleModalOpen();
     }
-    console.log(`handle edit \n ${data.id + data.title}`);
+    // console.log(`handle edit \n ${data.id + data.title}`);
   };
 
   const handleDelete = (product) => {
-    console.log(`handle delete \n ${''.concat(product.id, ' ', product.title)}`);
+    // console.log(`handle delete \n ${''.concat(product.id, ' ', product.title)}`);
   };
 
   return (
