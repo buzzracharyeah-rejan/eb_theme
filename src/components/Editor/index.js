@@ -1,9 +1,10 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { useEditorContext } from '../../context/EditorContext';
 
 const TextEditor = () => {
+  const editor = useRef(null); 
   const { HTMLButton, editorState, setEditorState, rawHTML, convertToHTML, convertToEditorState } =
     useEditorContext();
 
@@ -20,6 +21,7 @@ const TextEditor = () => {
   return (
     <div style={{ display: !HTMLButton ? '': 'none' }}>
       <Editor
+      ref={editor}
         editorState={editorState}
         onEditorStateChange={onEditorStateChange}
         toolbar={{

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Paper, IconButton } from '@mui/material';
+import orderBy from 'lodash/orderBy';
 
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -14,59 +15,16 @@ import {
 } from './Table.styles';
 import { ModalContext } from '../../context/ModalContext';
 import EditModal from '../Modal/EditModal';
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
-const rows = [
-  {
-    id: 1,
-    title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
-    price: 109.95,
-    description:
-      'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
-    category: "men's clothing",
-    image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
-    rating: {
-      rate: 3.9,
-      count: 120,
-    },
-  },
-  {
-    id: 2,
-    title: 'Mens Casual Premium Slim Fit T-Shirts ',
-    price: 22.3,
-    description:
-      'Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.',
-    category: "men's clothing",
-    image: 'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg',
-    rating: {
-      rate: 4.1,
-      count: 259,
-    },
-  },
-  {
-    id: 3,
-    title: 'Mens Cotton Jacket',
-    price: 55.99,
-    description:
-      'great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.',
-    category: "men's clothing",
-    image: 'https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg',
-    rating: {
-      rate: 4.7,
-      count: 500,
-    },
-  },
-];
-
-const cols = Object.keys(rows[0]).concat(['actions']);
-
-const TableComponent = () => {
+const TableComponent = ({ dataset, headers, tableMeta, handleSort }) => {
   const { modalOpen, handleModalOpen } = useContext(ModalContext);
-  const [payload, setPayload] = useState(null)
+  const [payload, setPayload] = useState(null);
 
   const handleEdit = (data) => {
-
     if (data) {
-      setPayload(data); 
+      setPayload(data);
       handleModalOpen();
     }
     // console.log(`handle edit \n ${data.id + data.title}`);
@@ -78,20 +36,31 @@ const TableComponent = () => {
 
   return (
     <>
-    {modalOpen && <EditModal payload={payload}/>}
+      {modalOpen && <EditModal payload={payload} />}
       <TableWrapper>
         <TableContainer component={Paper}>
           <Table>
             <TableHead>
               <TableRow>
-                {cols.map((col, index) => (
-                  <TableCell key={index}>{col}</TableCell>
+                {headers.map((colName, index) => (
+                  <TableCell key={index} onClick={() => handleSort(colName)}>
+                    <div style={{display:'flex', gap: '2px', alignItems: 'center'}}>
+                      {colName}
+                      <span>
+                        {tableMeta.colToSort === colName && tableMeta.sortDir === 'asc' ? (
+                          <ArrowDropDownIcon />
+                        ) : (
+                          <ArrowDropUpIcon />
+                        )}
+                      </span>
+                    </div>
+                  </TableCell>
                 ))}
               </TableRow>
             </TableHead>
 
             <TableBody>
-              {rows.map((row) => (
+              {dataset.map((row) => (
                 <TableRow key={row.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                   <TableCell>{row.id}</TableCell>
                   <TableCell>{row.title}</TableCell>
@@ -101,7 +70,7 @@ const TableComponent = () => {
                   <TableCell>
                     <img src={row.image} />
                   </TableCell>
-                  <TableCell>{row.rating.rate}</TableCell>
+                  <TableCell>{row.rating}</TableCell>
                   <TableCell>
                     <div>
                       <IconButton onClick={() => handleEdit(row)} color='success'>
